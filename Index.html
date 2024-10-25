@@ -1,66 +1,66 @@
-<!DOCTYPE html>  
- <html lang="en">  
- <head>  
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-     <title>60MC Date Calculator</title>  
-     <link rel="icon" href="C:\Users\RaymondTariao\OneDrive - AdaptHealth\Desktop\My most used applications\60MC\calculator.png" type="image/png">
-     <style>  
-         body {  
-             font-family: Arial, sans-serif;  
-             margin: 20px;  
-             padding: 20px;  
-             border: 1px solid #ccc;  
-             border-radius: 5px;  
-             max-width: 400px;  
-         }  
-         input, button {  
-             margin: 10px 0;  
-             padding: 10px;  
-             width: 100%;  
-         }  
-         button {  
-             background-color: #4CAF50;  
-             color: white;  
-             border: none;  
-             cursor: pointer;  
-         }  
-         button:hover {  
-             background-color: #45a049;  
-         }  
-     </style>  
- </head>  
- <body>  
-    <h2>60MC Date Calculator</h2>  
-     <label for="date-input">Enter a Date (MM-DD-YYYY):</label>  
-     <input type="date" id="date-input" required>  
-     
-     <button onclick="calculateDate(90)">Add 90 Days</button>  
-     <button onclick="calculateDate(-90)">Subtract 90 Days</button>  
-     
-     <h3>Resulting Date:</h3>  
-     <div id="result"></div>  
-    <script>  
-         function addDays(startDate, days) {  
-             const currentDate = new Date(startDate);  
-             currentDate.setDate(currentDate.getDate() + days);  
-             return currentDate;  
-         }  
-        function calculateDate(daysToAdd) {  
-             const dateInput = document.getElementById('date-input').value;  
-            if (!dateInput) {  
-                 document.getElementById('result').innerText = "Please enter a valid date.";  
-                 return;  
-             }  
-            const startDate = new Date(dateInput);  
-             const resultingDate = addDays(startDate, daysToAdd + 1);  // Add 1 to the result
-            // Format the date to MONTH/DAY/YEAR  
-             const month = String(resultingDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based  
-             const day = String(resultingDate.getDate()).padStart(2, '0');  
-             const year = resultingDate.getFullYear();  
-             const formattedDate = `${month}/${day}/${year}`;  
-            document.getElementById('result').innerText = formattedDate;  
-         }  
-     </script>  
-</body>  
- </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60MC Date Calculator</title>
+    <link rel="icon" href="calculator.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>60MC Date Calculator</h2>
+    <label for="date-input">Enter a Date (MM-DD-YYYY):</label>
+    <input type="date" id="date-input" required>
+    
+    <button onclick="calculateDate(90)">Add 90 Days</button>
+    <button onclick="calculateDate(-90)">Subtract 90 Days</button>
+    
+    <h3>Resulting Date:</h3>
+    <div id="result"></div>
+    <script>
+        function addDays(startDate, days) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(currentDate.getDate() + days);
+            return currentDate;
+        }
+        function calculateDate(daysToAdd) {
+            const dateInput = document.getElementById('date-input').value;
+            if (!dateInput) {
+                document.getElementById('result').innerText = "Please enter a valid date.";
+                return;
+            }
+            const startDate = new Date(dateInput);
+            const resultingDate = addDays(startDate, daysToAdd);
+            // Format the date to MONTH/DAY/YEAR
+            const month = String(resultingDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(resultingDate.getDate()).padStart(2, '0');
+            const year = resultingDate.getFullYear();
+            const formattedDate = `${month}/${day}/${year}`;
+            document.getElementById('result').innerText = formattedDate;
+        }
+    </script>
+</body>
+</html>
